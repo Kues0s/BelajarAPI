@@ -63,7 +63,7 @@ require_once('./orm/config.php');
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="form-label" for="tahun_terbit">Tahun Terbit</label>
-                                                        <input type="number" class="form-control" id="tahun_terbit" name="tahun_terbit" placeholder="Enter tahun terbit" required>
+                                                        <input type="date" class="form-control" id="tahun_terbit" name="tahun_terbit" placeholder="Enter tahun terbit" required>
                                                     </div>
                                                     <button type="submit" class="btn btn-primary mb-4">Submit</button>
                                                     <a href="?page=buku" class="btn btn-secondary mb-4">Kembali</a>
