@@ -1,0 +1,2 @@
+nim=C030324080
+nama=Muhammad Ashshadiqil Amin
