@@ -11,8 +11,16 @@ if($id) {
     const bukuId = '<?php echo $id; ?>';
     
     if(confirm('Yakin ingin menghapus buku ini?')) {
+        const jsonData = {
+            id_buku: bukuId
+        };
+        
         fetch(baseUrl + '/Perpustakaan/api/buku.php?id=' + bukuId, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(jsonData)
         })
         .then(response => response.json())
         .then(data => {

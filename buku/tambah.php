@@ -62,8 +62,8 @@ require_once('./orm/config.php');
                                                         <input type="number" class="form-control" id="stok" name="stok" placeholder="Enter stok" required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="tahun_terbit">Tahun Terbit</label>
-                                                        <input type="date" class="form-control" id="tahun_terbit" name="tahun_terbit" placeholder="Enter tahun terbit" required>
+                                                        <label class="form-label" for="tahun_terbit">Tanggal Terbit (Tahun-Bulan-Hari)</label>
+                                                        <input type="date" class="form-control" id="tahun_terbit" name="tahun_terbit" placeholder="yyyy-mm-dd" required>
                                                     </div>
                                                     <button type="submit" class="btn btn-primary mb-4">Submit</button>
                                                     <a href="?page=buku" class="btn btn-secondary mb-4">Kembali</a>

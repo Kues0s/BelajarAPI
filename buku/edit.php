@@ -62,8 +62,8 @@ require_once('./orm/config.php');
                                                         <input type="number" class="form-control" id="stok" name="stok" placeholder="Enter stok" required>
                                                     </div>
                                                     <div class="mb-3">
-                                                        <label class="form-label" for="tahun_terbit">Tahun Terbit</label>
-                                                        <input type="date" class="form-control" id="tahun_terbit" name="tahun_terbit" placeholder="Enter tahun terbit" required>
+                                                        <label class="form-label" for="tahun_terbit">Tanggal Terbit (Tahun-Bulan-Hari)</label>
+                                                        <input type="date" class="form-control" id="tahun_terbit" name="tahun_terbit" placeholder="yyyy-mm-dd" required>
                                                     </div>
                                                     <button type="submit" class="btn btn-primary mb-4">Update</button>
                                                     <a href="?page=buku" class="btn btn-secondary mb-4">Kembali</a>
@@ -167,12 +167,21 @@ function loadPenerbit() {
 function submitForm(event) {
     event.preventDefault();
     
-    const formData = new FormData(document.getElementById('bukuForm'));
-    formData.append('id_buku', bukuId);
+    const jsonData = {
+        id_buku: bukuId,
+        judul_buku: document.getElementById('judul_buku').value,
+        id_kategori: document.getElementById('id_kategori').value,
+        id_penerbit: document.getElementById('id_penerbit').value,
+        stok: document.getElementById('stok').value,
+        tahun_terbit: document.getElementById('tahun_terbit').value
+    };
     
     fetch(baseUrl + '/Perpustakaan/api/buku.php?id=' + bukuId, {
         method: 'PUT',
-        body: formData
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jsonData)
     })
     .then(response => response.json())
     .then(data => {
